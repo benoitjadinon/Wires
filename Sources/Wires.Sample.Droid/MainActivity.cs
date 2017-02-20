@@ -25,12 +25,15 @@ namespace Wires.Sample.Droid
 		TextView label;
 		EditText field;
 		Button button;
+		Switch toggleSwitch;
+
 
 		public override Android.Views.View OnCreateView(string name, Android.Content.Context context, Android.Util.IAttributeSet attrs)
 		{
 			label = FindViewById<TextView>(Resource.Id.textView1);
 			field = FindViewById<EditText>(Resource.Id.editText1);
 			button = FindViewById<Button>(Resource.Id.button1);
+			toggleSwitch = FindViewById<Switch>(Resource.Id.switch1);
 
 			this.ViewModel
 				.Bind(this.label)
@@ -45,8 +48,11 @@ namespace Wires.Sample.Droid
 					.ImageAsync(vm => vm.Illustration)
 					.Alpha(vm => vm.Amount)
 					.Visible(vm => vm.IsActive)
+					*/
 				.Bind(this.toggleSwitch)
-					.On(vm => vm.IsActive)
+			    	.Checked(vm => vm.IsActive)
+			    	//.On(vm => vm.IsActive)
+			    /*
 				.Bind(this.slider)
 					.Value(vm => vm.Amount)
 				.Bind(this.datePicker)
