@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Linq.Expressions;
+	using System.Windows.Input;
 	using Android.Graphics.Drawables;
 	using Android.Views;
 
@@ -40,5 +41,17 @@
 		}
 
 		#endregion
+
+		#region TouchUpInside command
+
+		public static Binder<TSource, TView> TouchUpInside<TSource, TView>(this Binder<TSource, TView> binder, Expression<Func<TSource, ICommand>> property)
+			where TSource : class
+			where TView : View
+		{
+			return binder.Command<EventArgs>(property, nameof(View.Click), (b, v) => b.Enabled = v);
+		}
+
+		#endregion
+
 	}
 }

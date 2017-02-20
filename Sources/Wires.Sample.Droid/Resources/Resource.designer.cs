@@ -51,6 +51,9 @@ namespace Wires.Sample.Droid
 			// aapt resource value: 0x7f040001
 			public const int editText1 = 2130968577;
 			
+			// aapt resource value: 0x7f040003
+			public const int switch1 = 2130968579;
+			
 			// aapt resource value: 0x7f040000
 			public const int textView1 = 2130968576;
 			

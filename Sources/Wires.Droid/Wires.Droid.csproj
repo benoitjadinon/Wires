@@ -51,13 +51,10 @@
 	</Compile>
     <Compile Include="Converters\PlatformConverters.cs" />
     <Compile Include="UIExtensions.cs" />
-    <Compile Include="Button.cs">
-      <DependentUpon>UIExtensions.cs</DependentUpon>
-	</Compile>
     <Compile Include="View.cs">
       <DependentUpon>UIExtensions.cs</DependentUpon>
 	</Compile>
-    <Compile Include="Switch.cs">
+    <Compile Include="CompoundButton.cs">
       <DependentUpon>UIExtensions.cs</DependentUpon>
 	</Compile>
     <Compile Include="Linking.cs" />
