@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C345A701-4558-42E3-A56B-EA0A6DF529F3}</ProjectGuid>
+    <ProjectGuid>{716426F4-E166-4397-B6D5-175CAD20F34F}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>Wires.Sample.Droid</RootNamespace>
@@ -64,7 +64,26 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\mipmap-hdpi\" />
+    <Folder Include="Resources\mipmap-mdpi\" />
+    <Folder Include="Resources\mipmap-xhdpi\" />
+    <Folder Include="Resources\mipmap-xxhdpi\" />
+    <Folder Include="Resources\mipmap-xxxhdpi\" />
     <Folder Include="Resources\drawable\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wires.Droid\Wires.Droid.csproj">
+      <Project>{631926B7-2FCE-46F4-95BB-F4C90F53F019}</Project>
+      <Name>Wires.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wires.Sample.ViewModel\Wires.Sample.ViewModel.csproj">
+      <Project>{393AF82A-554A-470E-94E2-712C19A27114}</Project>
+      <Name>Wires.Sample.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wires\Wires.csproj">
+      <Project>{190C423F-A178-43DE-A8FE-955DBD12562B}</Project>
+      <Name>Wires</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
