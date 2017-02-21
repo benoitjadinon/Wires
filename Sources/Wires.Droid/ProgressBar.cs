@@ -9,8 +9,9 @@
 	{
 		#region Progress property
 
-		public static Binder<TSource, ProgressBar> Progress<TSource, TPropertyType>(this Binder<TSource, ProgressBar> binder, Expression<Func<TSource, TPropertyType>> property, IConverter<TPropertyType, int> converter = null)
+		public static Binder<TSource, TView> Progress<TSource, TView, TPropertyType>(this Binder<TSource, TView> binder, Expression<Func<TSource, TPropertyType>> property, IConverter<TPropertyType, int> converter = null)
 			where TSource : class
+			where TView : ProgressBar
 		{
 			return binder.Property(property, b => b.Progress, converter);
 		}

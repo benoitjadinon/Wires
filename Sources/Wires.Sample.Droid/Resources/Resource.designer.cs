@@ -48,8 +48,20 @@ namespace Wires.Sample.Droid
 			// aapt resource value: 0x7f040002
 			public const int button1 = 2130968578;
 			
+			// aapt resource value: 0x7f040006
+			public const int datePicker1 = 2130968582;
+			
 			// aapt resource value: 0x7f040001
 			public const int editText1 = 2130968577;
+			
+			// aapt resource value: 0x7f040004
+			public const int imageView1 = 2130968580;
+			
+			// aapt resource value: 0x7f040007
+			public const int progressBar1 = 2130968583;
+			
+			// aapt resource value: 0x7f040005
+			public const int seekBar1 = 2130968581;
 			
 			// aapt resource value: 0x7f040003
 			public const int switch1 = 2130968579;

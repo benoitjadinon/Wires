@@ -62,25 +62,27 @@ namespace Wires
 		/// </summary>
 		/// <returns>The string to cached image.</returns>
 		/// <param name="expiration">Expiration.</param>
-		public static IConverter<string, Task<Bitmap>> AsyncStringToCachedImage(TimeSpan expiration, int reqWidth, int reqHeight) => new RelayConverter<string, Task<Bitmap>>(async (value) =>
-		 {
-			 if (string.IsNullOrEmpty(value))
-				 return null;
+		public static IConverter<string, Task<Bitmap>> AsyncStringToCachedImage(TimeSpan expiration, int reqWidth, int reqHeight) 
+			=> new RelayConverter<string, Task<Bitmap>>(async (value) => 
+			{
+				 if (string.IsNullOrEmpty(value))
+					 return null;
 
-			var localPath = await FileCache.Default.DownloadCachedFile(value, expiration);
+				var localPath = await FileCache.Default.DownloadCachedFile(value, expiration);
 
-			 // First decode with inJustDecodeBounds=true to check dimensions
-			var options = new BitmapFactory.Options();
-			options.InJustDecodeBounds = true;
-			BitmapFactory.DecodeFile(localPath, options);
+				 // First decode with inJustDecodeBounds=true to check dimensions
+				var options = new BitmapFactory.Options();
+				options.InJustDecodeBounds = true;
+				BitmapFactory.DecodeFile(localPath, options);
 
-			 // Calculate inSampleSize
-			options.InSampleSize = CalculateInSampleSize(options, reqWidth, reqHeight);
+				 // Calculate inSampleSize
+				options.InSampleSize = CalculateInSampleSize(options, reqWidth, reqHeight);
 
-			 // Decode bitmap with inSampleSize set
-			options.InJustDecodeBounds = false;
-			return BitmapFactory.DecodeFile(localPath, options);
-		 });
+				 // Decode bitmap with inSampleSize set
+				options.InJustDecodeBounds = false;
+				return BitmapFactory.DecodeFile(localPath, options);
+			 }
+        );
 	}
 
 	#endregion

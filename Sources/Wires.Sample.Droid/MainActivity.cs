@@ -26,6 +26,10 @@ namespace Wires.Sample.Droid
 		EditText field;
 		Button button;
 		Switch toggleSwitch;
+		ImageView image;
+		SeekBar slider;
+		DatePicker datePicker;
+		ProgressBar progressView;
 
 
 		public override Android.Views.View OnCreateView(string name, Android.Content.Context context, Android.Util.IAttributeSet attrs)
@@ -34,39 +38,35 @@ namespace Wires.Sample.Droid
 			field = FindViewById<EditText>(Resource.Id.editText1);
 			button = FindViewById<Button>(Resource.Id.button1);
 			toggleSwitch = FindViewById<Switch>(Resource.Id.switch1);
+			image = FindViewById<ImageView>(Resource.Id.imageView1);
+			slider = FindViewById<SeekBar>(Resource.Id.seekBar1);
+			datePicker = FindViewById<DatePicker>(Resource.Id.datePicker1);
+			progressView = FindViewById<ProgressBar>(Resource.Id.progressBar1);
 
 			this.ViewModel
 				.Bind(this.label)
 					.Text(vm => vm.Title, Converters.Uppercase)
 				.Bind(this.field)
 					.Text(vm => vm.Title)
-				/*
-			    .Bind(this.textView)
-					.Text(vm => vm.Title)
-					.UserInteractionEnabled(vm => vm.IsActive)
 				.Bind(this.image)
-					.ImageAsync(vm => vm.Illustration)
+			    	.ImageAsync(vm => vm.Illustration)
 					.Alpha(vm => vm.Amount)
-					.Visible(vm => vm.IsActive)
-					*/
-				.Bind(this.toggleSwitch)
+					.Visibility(vm => vm.IsActive)
+			    .Bind(this.toggleSwitch)
 			    	.Checked(vm => vm.IsActive)
-			    	//.On(vm => vm.IsActive)
-			    /*
-				.Bind(this.slider)
-					.Value(vm => vm.Amount)
-				.Bind(this.datePicker)
-					.Date(vm => vm.Birthday)
-				.Bind(this.progressView)
+			    .Bind(this.slider)
 					.Progress(vm => vm.Amount)
-				.Bind(this.activityIndicator)
-					.IsAnimating(vm => vm.IsLoading)
-				.Bind(this.segmented)
-					.Titles(vm => vm.Sections)
-					.Selected(vm => vm.Selected)
-			    */
-				.Bind(this.button)
-					.TouchUpInside(vm => vm.LoadCommand)
+				//Bind(this.datePicker)
+					//.Date(vm => vm.Birthday)
+			    .Bind(this.progressView)
+					.Progress(vm => vm.Amount)
+			    //.Bind(this.activityIndicator)
+				//	.IsAnimating(vm => vm.IsLoading)
+				//.Bind(this.segmented)
+				//	.Titles(vm => vm.Sections)
+				//	.Selected(vm => vm.Selected)
+			    .Bind(this.button)
+			    	.Click(vm => vm.LoadCommand)
 			    ;
 
 			return base.OnCreateView(name, context, attrs);

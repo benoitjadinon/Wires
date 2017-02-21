@@ -18,9 +18,13 @@
 			return binder.Property(property, b => ((BitmapDrawable)b.Drawable).Bitmap,  (b,v) => b.SetImageBitmap(v), converter);
 		}
 
-		public static Binder<TSource, ImageView> ImageAsync<TSource, TPropertyType>(this Binder<TSource, ImageView> binder, Expression<Func<TSource, TPropertyType>> property, IConverter<TPropertyType, Task<Bitmap>> converter, Bitmap loading = null)
+		public static Binder<TSource, ImageView> ImageAsync<TSource, TPropertyType>(this Binder<TSource, ImageView> binder, Expression<Func<TSource, TPropertyType>> property, IConverter<TPropertyType, Task<Bitmap>> converter = null, Bitmap loading = null)
 			where TSource : class
 		{
+			if (converter == null)
+				converter = (Wires.IConverter<TPropertyType, System.Threading.Tasks.Task<Android.Graphics.Bitmap>>)
+					PlatformConverters.AsyncStringToCachedImage(TimeSpan.FromSeconds(30), 250, 250);
+			
 			return binder.PropertyAsync(property, b => ((BitmapDrawable)b.Drawable).Bitmap, (b, v) => b.SetImageBitmap(v), converter, loading);
 		}
 

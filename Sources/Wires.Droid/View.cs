@@ -44,7 +44,7 @@
 
 		#region TouchUpInside command
 
-		public static Binder<TSource, TView> TouchUpInside<TSource, TView>(this Binder<TSource, TView> binder, Expression<Func<TSource, ICommand>> property)
+		public static Binder<TSource, TView> Click<TSource, TView>(this Binder<TSource, TView> binder, Expression<Func<TSource, ICommand>> property)
 			where TSource : class
 			where TView : View
 		{
