@@ -2,6 +2,7 @@ namespace Wires
 {
 	using System;
 	using System.Linq.Expressions;
+	using Android.Text;
 	using Android.Views;
 	using Android.Widget;
 

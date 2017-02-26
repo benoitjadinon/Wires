@@ -9,13 +9,17 @@ namespace Wires
 		static Converters()
 		{
 			var intToFloat = new RelayConverter<int, float>(v => v, v => (int)v);
+			var intToDouble = new RelayConverter<int, double>(v => v, v => (int)v);
 			var floatToDouble = new RelayConverter<float, double>(v => v, v => (float)v);
 
 			Register(intToFloat);
 			Register(intToFloat.Inverse());
+			Register(intToDouble);
+			Register(intToDouble.Inverse());
 			Register(floatToDouble);
 			Register(floatToDouble.Inverse());
 			Register(TimestampToDatetime);
+			Register(TimestampToDatetime.Inverse());
 		}
 
 		private static List<object> converters = new List<object>();

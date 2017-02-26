@@ -1,9 +1,10 @@
-﻿namespace Wires
+﻿using System;
+using System.Linq.Expressions;
+using Android.Text;
+using Android.Widget;
+
+namespace Wires
 {
-	using System;
-	using System.Linq.Expressions;
-	using Android.Text;
-	using Android.Widget;
 
 	public static partial class UIExtensions
 	{

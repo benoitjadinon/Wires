@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Wires</RootNamespace>
     <AssemblyName>Wires.Droid</AssemblyName>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
@@ -60,6 +60,9 @@
     <Compile Include="EditText.cs">
       <DependentUpon>UIExtensions.cs</DependentUpon>
     </Compile>
+    <Compile Include="NumberPicker.cs">
+      <DependentUpon>UIExtensions.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProgressBar.cs">
       <DependentUpon>UIExtensions.cs</DependentUpon>
     </Compile>
@@ -69,9 +72,19 @@
     <Compile Include="..\Wires.iOS\Utils\FileCache.cs">
       <Link>Utils\FileCache.cs</Link>
     </Compile>
+    <Compile Include="CalendarView.cs">
+      <DependentUpon>UIExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabHost.cs">
+      <DependentUpon>UIExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimePicker.cs">
+      <DependentUpon>UIExtensions.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
