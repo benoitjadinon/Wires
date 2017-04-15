@@ -1,4 +1,4 @@
-﻿using Android.App;
+using Android.App;
 using Android.Widget;
 using Android.OS;
 using Wires;
@@ -29,8 +29,12 @@ namespace Wires.Sample.Droid
 								
 			this.ViewModel = new HomeViewModel();
 
+			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
+		}
 
+		public override Android.Views.View OnCreateView(string name, Android.Content.Context context, Android.Util.IAttributeSet attrs)
+		{
 			label = FindViewById<TextView>(Resource.Id.textView1);
 			field = FindViewById<EditText>(Resource.Id.editText1);
 			button = FindViewById<Button>(Resource.Id.button1);
@@ -46,23 +50,23 @@ namespace Wires.Sample.Droid
 				.Bind(this.field)
 					.Text(vm => vm.Title)
 				.Bind(this.image)
-			    	.ImageAsync(vm => vm.Illustration)
+					.ImageAsync(vm => vm.Illustration)
 					.Alpha(vm => vm.Amount)
 					.Visibility(vm => vm.IsActive)
-			    .Bind(this.toggleSwitch)
+				.Bind(this.toggleSwitch)
 			    	.Checked(vm => vm.IsActive)
 				.Bind(this.datePicker)
 					.Date(vm => vm.Birthday)
 				.Bind(this.slider)
 					.Progress(vm => vm.Amount)
-			    .Bind(this.progressView)
+				.Bind(this.progressView)
 					.Progress(vm => vm.Amount)
 			    //.Bind(this.activityIndicator)
 				//	.IsAnimating(vm => vm.IsLoading)
 				//.Bind(this.segmented)
 				//	.Titles(vm => vm.Sections)
 				//	.Selected(vm => vm.Selected)
-			    .Bind(this.button)
+				.Bind(this.button)
 			    	.Click(vm => vm.LoadCommand)
 			    ;
 		}

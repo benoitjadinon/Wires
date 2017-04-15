@@ -251,3 +251,4 @@ paket-files/
 .idea/
 *.sln.iml
 /Sources/Wires.Sample.Droid/Resources/Resource.designer.cs
+*.droidres.db
