@@ -26,10 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView1" />
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar1" />
     <CalendarView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,5 +34,11 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:max="100"
         android:id="@+id/progressBar1" />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:id="@+id/seekBar1" />
 </LinearLayout>

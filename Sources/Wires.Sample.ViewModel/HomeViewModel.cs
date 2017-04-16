@@ -49,7 +49,7 @@ namespace Wires.Sample.ViewModel
 
 		public string Title
 		{
-			get { return title + $" ({selected})"; }
+			get { return title /*+ $" ({selected})"*/; }
 			set { if (this.Set(ref title, value)) RaiseProperty(nameof(Sections)); }
 		}
 

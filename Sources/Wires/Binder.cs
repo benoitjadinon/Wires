@@ -37,7 +37,7 @@
 			return cast;
 		}
 
-		public Binder<TTarget, TSource> Invert()
+		public Binder<TTarget, TSource> AddInverted()
 		{
 			var cast = new Binder<TTarget, TSource>(Target,Source);
 			this.Add(cast);
@@ -141,7 +141,7 @@
 			var r = this.Property(sourceProperty, targetGetter, targetSetter, converter);
 
 			var sourceAccessors = sourceProperty.BuildAccessors();
-			this.Invert().Add(new OneWayBinding<TTarget, TSource, TTargetProperty, TSourceProperty, TTargetChangedEventArgs>(Target, targetGetter, targetSetter, targetChangedEvent, Source, sourceAccessors.Item1, sourceAccessors.Item2, converter.Inverse()));
+			this.AddInverted().Add(new OneWayBinding<TTarget, TSource, TTargetProperty, TSourceProperty, TTargetChangedEventArgs>(Target, targetGetter, targetSetter, targetChangedEvent, Source, sourceAccessors.Item1, sourceAccessors.Item2, converter.Inverse()));
 			return r;
 		}
 

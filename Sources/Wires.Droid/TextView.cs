@@ -14,6 +14,10 @@ namespace Wires
 			where TSource : class
 			where TView : TextView
 		{
+			TView view;
+			if (binder.TryGetTarget(out view) && view != null && view is EditText)
+				return binder.Property<TPropertyType, string, TextChangedEventArgs>(property, b => b.Text, nameof(EditText.TextChanged), converter);
+
 			return binder.Property(property, b => b.Text, converter);
 		}
 

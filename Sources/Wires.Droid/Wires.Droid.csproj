@@ -66,9 +66,6 @@
       <DependentUpon>UIExtensions.cs</DependentUpon>
 	</Compile>
     <Compile Include="Linking.cs" />
-    <Compile Include="EditText.cs">
-      <DependentUpon>UIExtensions.cs</DependentUpon>
-	</Compile>
     <Compile Include="NumberPicker.cs">
       <DependentUpon>UIExtensions.cs</DependentUpon>
     </Compile>
